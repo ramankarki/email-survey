@@ -1,11 +1,12 @@
 const express = require("express");
-const passport = require("passport");
-const GoogleStrategy = require("passport-google-oauth20").Strategy;
-const app = express();
+const googleOauth = require("./routes/google-oauth");
 
-passport.use(new GoogleStrategy());
+const app = express();
 
 // initialize global middleware
 app.use(express.json());
+
+// google oauth
+app.use("/auth/google", googleOauth);
 
 module.exports = app;
