@@ -22,6 +22,6 @@ app.use(passport.session());
 
 // google oauth
 app.use("/auth/google", googleOauth);
-app.use("/api/v1/users", usersRoute);
+app.use("/api/v1/user", usersRoute);
 
 module.exports = app;
