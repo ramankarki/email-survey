@@ -43,14 +43,13 @@ router.route("/").get(
 );
 
 // callback for exchanging code with data with google
-router.route("/callback").get(passport.authenticate("google"));
+router.route("/callback").get(passport.authenticate("google"), (req, res) => {
+  res.redirect("/surveys");
+});
 
 router.get("/logout", (req, res) => {
   req.logout();
-  res.status(204).json({
-    status: "logout",
-    user: req.user,
-  });
+  res.redirect("/");
 });
 
 module.exports = router;
