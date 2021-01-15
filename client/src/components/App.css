@@ -1,5 +1,16 @@
 section,
 article,
-aside {
+aside,
+picture {
   display: block;
+}
+
+body {
+  margin: auto;
+  font-family: "Poppins", sans-serif;
+}
+
+*:focus,
+*:active {
+  outline: "none";
 }
