@@ -23,7 +23,7 @@ class Header extends React.Component {
                 style={{
                   color: "#ffa1bb",
                   marginLeft: ".5rem",
-                  fontSize: "1.5rem",
+                  fontSize: "1.3rem",
                 }}
               />
             </a>
@@ -38,7 +38,7 @@ class Header extends React.Component {
               style={{
                 color: "#5BF59A",
                 marginLeft: ".5rem",
-                fontSize: "1.5rem",
+                fontSize: "1.3rem",
               }}
             />
           </a>
@@ -54,7 +54,7 @@ class Header extends React.Component {
         <div
           className="nav-wrapper"
           style={{
-            width: "90%",
+            width: "95%",
             margin: "auto",
             display: "flex",
             justifyContent: "space-between",
@@ -72,7 +72,7 @@ class Header extends React.Component {
                 color: "white",
               }}
             >
-              <img src="favicon.svg" alt="logo" width="40px" /> Email Survey
+              <img src="favicon.svg" alt="logo" width="30px" /> Email Survey
             </picture>
           </Link>
           <ul style={{ listStyle: "none" }}>{this.loginState()}</ul>
