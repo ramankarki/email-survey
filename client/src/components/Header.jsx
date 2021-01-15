@@ -3,42 +3,43 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
 class Header extends React.Component {
+  loginStyle = {
+    fontWeight: "500",
+    display: "flex",
+    alignItems: "center",
+    color: "#ffa1bb",
+    textDecoration: "none",
+  };
+
   loginState() {
     if (this.props.auth) {
       if (this.props.auth.statusCode === 200)
         return (
           <li>
-            <a
-              href="/auth/google/logout"
-              style={{
-                fontWeight: "bold",
-                display: "flex",
-                alignItems: "center",
-                color: "#ffa1bb",
-              }}
-            >
+            <a href="/auth/google/logout" style={this.loginStyle}>
               Logout
               <i
                 className="fab fa-google"
-                style={{ color: "#ffa1bb", marginLeft: ".5rem" }}
+                style={{
+                  color: "#ffa1bb",
+                  marginLeft: ".5rem",
+                  fontSize: "1.5rem",
+                }}
               />
             </a>
           </li>
         );
       return (
         <li>
-          <a
-            href="/auth/google"
-            style={{
-              fontWeight: "bold",
-              display: "flex",
-              alignItems: "center",
-            }}
-          >
+          <a href="/auth/google" style={{ ...this.loginStyle, color: "white" }}>
             Login with
             <i
               className="fab fa-google"
-              style={{ color: "#5BF59A", marginLeft: ".5rem" }}
+              style={{
+                color: "#5BF59A",
+                marginLeft: ".5rem",
+                fontSize: "1.5rem",
+              }}
             />
           </a>
         </li>
@@ -49,14 +50,32 @@ class Header extends React.Component {
 
   render() {
     return (
-      <nav style={{ backgroundColor: "#3d6cb9" }}>
-        <div className="nav-wrapper" style={{ width: "90%", margin: "auto" }}>
-          <Link to="/" className="left brand-logo">
-            <picture style={{ display: "flex", alignItems: "center" }}>
+      <nav style={{ backgroundColor: "#482ff7" }}>
+        <div
+          className="nav-wrapper"
+          style={{
+            width: "90%",
+            margin: "auto",
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+            padding: ".5rem 0",
+          }}
+        >
+          <Link to="/" style={{ textDecoration: "none" }}>
+            <picture
+              style={{
+                display: "flex",
+                alignItems: "center",
+                fontSize: "1.3rem",
+                fontWeight: "500",
+                color: "white",
+              }}
+            >
               <img src="favicon.svg" alt="logo" width="40px" /> Email Survey
             </picture>
           </Link>
-          <ul className="right">{this.loginState()}</ul>
+          <ul style={{ listStyle: "none" }}>{this.loginState()}</ul>
         </div>
       </nav>
     );
