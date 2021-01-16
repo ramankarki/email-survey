@@ -26,7 +26,7 @@ class StripeCover extends React.Component {
       <StripeCheckout
         amount={500}
         token={(token) => this.props.handleToken(token)}
-        stripeKey={process.env.REACT_APP_STRIPE_PUBLIC_KEY}
+        stripeKey="pk_test_51IA68gBRySyCGrtLELJI9OvBvOixSzzdWxWmCxGQIyj4ayhjFzgHzOqZOVHDRHyfsQsSGMavRyGdCidv7r3HeOOH00d1prwmyC"
         name="Email Survey"
         description="Rs50 for 5 email credits"
         currency="INR"
