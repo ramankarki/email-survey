@@ -31,6 +31,9 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static(__dirname + "/client/build"));
 
   app.get("/surveys", (req, res) => {
+    if (!req.user) {
+      return res.redirect("/");
+    }
     res.sendFile(__dirname + "/client/build/index.html");
   });
 }
