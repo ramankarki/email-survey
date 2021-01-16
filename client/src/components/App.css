@@ -14,3 +14,7 @@ body {
 *:active {
   outline: "none";
 }
+
+.nav-wrapper {
+  max-width: 800px;
+}
