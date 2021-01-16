@@ -4,6 +4,8 @@ const passport = require("passport");
 const googleOauth = require("./routes/googleOauth");
 const keys = require("./config/keys");
 const usersRoute = require("./routes/users");
+const bilingStripe = require("./routes/bilingStripe");
+const requireLoginAuth = require("./controller/requireLoginAuth");
 
 const app = express();
 
@@ -23,5 +25,14 @@ app.use(passport.session());
 // google oauth
 app.use("/auth/google", googleOauth);
 app.use("/api/v1/user", usersRoute);
+app.use("/api/v1/stripe", requireLoginAuth, bilingStripe);
+
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(__dirname + "/client/build"));
+
+  app.get("/surveys", (req, res) => {
+    res.sendFile(__dirname + "/client/build/index.html");
+  });
+}
 
 module.exports = app;
