@@ -23,12 +23,20 @@ class Landing extends React.Component {
     if (this.props.auth) {
       if (this.props.auth.statusCode === 200)
         return (
-          <Link to="/surveys" style={this.getStartedButtonStyle}>
+          <Link
+            to="/surveys"
+            className="btn"
+            style={this.getStartedButtonStyle}
+          >
             Get started
           </Link>
         );
       return (
-        <a href="/auth/google" style={this.getStartedButtonStyle}>
+        <a
+          href="/auth/google"
+          className="btn"
+          style={this.getStartedButtonStyle}
+        >
           Get started
         </a>
       );
